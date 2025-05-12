@@ -1,0 +1,48 @@
+ascii value 10
+----------------------------------------------------------------------------------------------
+Write a Java program to find the ASCII value of a given character.
+
+You are required to:
+
+Read a single character from the user. Print the ASCII value of the character as output.
+
+Input Format
+
+A single character ch (can be a letter, digit, or special symbol).
+
+Constraints
+
+ch is any valid ASCII character in the range:
+
+32≤ch≤126 (Includes printable characters like letters, digits, and symbols).
+
+Output Format
+
+Print an integer representing the ASCII value of the given character.
+
+Sample Input 0
+
+A
+Sample Output 0
+
+65
+Sample Input 1
+
+5
+Sample Output 1
+
+53
+---------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        char ch=in.nextLine().charAt(0);
+        int ans=ch;
+        System.out.print(ans);
+        
+    }
+}

@@ -1,0 +1,98 @@
+Write a Java program that takes a string as input and counts the following:
+
+Number of lowercase vowels (a, e, i, o, u) Number of uppercase vowels (A, E, I, O, U) Number of lowercase consonants Number of uppercase consonants Number of digits (0-9) Number of special characters (anything other than alphabets, digits, and spaces) Number of spaces
+
+Input Format
+
+A single string S (length 1 <= |S| <= 10^5)
+
+Constraints
+
+A single string S (length 1 <= |S| <= 10^5)
+
+Output Format
+
+Print the counts in the following order, each on a new line:
+
+Lowercase vowels Uppercase vowels Lowercase consonants Uppercase consonants Digits Special characters Spaces
+
+Sample Input 0
+
+aEiOu
+Sample Output 0
+
+3 
+2
+0 
+0
+0 
+0 
+0
+Sample Input 1
+
+bcdfghjklmnpqrstvwxyz
+Sample Output 1
+
+0  
+0 
+21
+0 
+0  
+0  
+0
+-----------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------- 
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        String s=in.nextLine();
+        int lv=0,uv=0,lc=0,uc=0,d=0,sp=0,sc=0;
+        String lvowels="",uvowels="",lcons="",ucons="",digits="",spaces="",schars="";
+        for(int i=0; i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='a'|| ch=='e'|| ch=='i'|| ch=='o'|| ch=='u'){
+                lv++;
+            lvowels=lvowels+ch;
+            }
+            else if(ch=='A'|| ch=='E'|| ch=='I'||ch=='O'|| ch=='U'){
+                uv++;
+                uvowels=uvowels+ch;
+            }
+            else if(ch>='a' && ch<='z'){
+                lc++;
+                lcons=lcons+ch;
+            }
+            else if(ch>='A' && ch<='Z'){
+                uc++;
+                ucons=ucons+ch;
+            }
+            else if(ch>='0' && ch<='9'){
+                d++;
+                digits=digits+ch;
+            }
+            else if(ch==' '){
+                sp++;
+                spaces=spaces+ch;
+            }
+            else
+            {
+                sc++;
+                schars=schars+ch;
+            }
+        }
+        System.out.println(lvowels+" : "+lv);
+        System.out.println(uvowels+" : "+uv);
+        System.out.println(lcons+" : "+lc);
+        System.out.println(ucons+" : "+uc);
+        System.out.println(digits+" : "+d);
+        System.out.println(spaces+" : "+sp);
+        System.out.println(schars+" : "+sc);
+        
+            
+        }
+    }

@@ -1,0 +1,42 @@
+ascii value of all characters in a string
+-----------------------------------------------------------------------------------------------------------------------------------
+Write a Java program to find the ASCII values of all characters in a given string.
+
+You are required to:
+
+Read a string S from the user. Print the ASCII value of each character in the string, separated by spaces.
+
+Input Format
+
+A single string S consisting of alphanumeric characters and special symbols.
+
+Constraints
+
+1≤∣S∣≤100 (The length of S is between 1 and 100). S contains only printable ASCII characters (values from 32 to 126).
+
+Output Format
+
+Print the ASCII values of each character in S, separated by spaces.
+
+Sample Input 0
+
+Hello
+Sample Output 0
+
+72 101 108 108 111
+-----------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        String s=in.nextLine();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            int ans=ch;
+            System.out.print(ans+" ");
+        }
+    }
+}

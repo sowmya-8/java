@@ -1,0 +1,74 @@
+->int c=10/3;//3
+
+->implicit : convert lower DT to higher DT
+
+->tiny--byte--short--char--int--long--float--double
+
+->implicit type conversion=>automatic conversion, widening process, forceable conversion{also called as}
+
+->string: single dimensional array of character
+
+-n>extLine()--accepts the string with spaces
+
+->char ch=in.nextLine().charAt(0);///taking single char from string
+
+->loop:to repeat the block of code for n number of times
+
+->Sequential loop: run the block of code in Sequence
+
+->set: set is a interface; set is a collection framework; set doesn't allow duplicates; set doesn't follow same insertion input to give same in output
+
+->set--class Hashset{won't follow insertion order}
+   --LinkedHashset{it will follow insertion order}  
+
+->collection:group of different objects which doesnt has any size
+
+->array:collection of similar data type
+
+->when the boundry is know we use FOR loop
+
+->when there are no boundaries then we have to use FOR EACH loop
+
+->this for FOR EACH loop works in forward direction
+
+->while loop is called as pre condition check
+
+->pre increment
+
+->post increment
+
+->pre decrement
+
+->post decrement
+
+->i=5
+  print i;//5
+  print ++i;//6 i=6
+  print i++;//6 i=7
+  print ++i;//8 i=8
+  print i++;//8 i=9
+  print --i;//8 i=8
+  print i--;//8 i=7
+  print i++;//7 i=8
+  print i--;//8 i=7
+  print --i;//6 i=6
+
+->import java.util.*;
+  class Main{
+      public static void main(String args[]){
+         Scanner in=new Scanner(System.in);
+         int i=5;
+         int j=i+++i+++i++;
+         System.out.print(i+" "+j);
+      }
+  }  
+
+->import java.util.*;
+  class Main{
+      public static void main(String args[]){
+         Scanner in=new Scanner(System.in);
+         int i=5;
+         int j=++i + ++i + ++i;
+         System.out.print(i+" "+j);
+      }
+  } 

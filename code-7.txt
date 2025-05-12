@@ -1,0 +1,52 @@
+Write a Java program that takes a single character as input and determines whether it is:
+
+A lowercase alphabet (a-z) An uppercase alphabet (A-Z) A numeric digit (0-9) A special character (anything other than alphabets and digits)
+
+Input Format
+
+A single character ch
+
+Constraints
+
+The input will be a single printable ASCII character (value between 32 and 126)
+
+Output Format
+
+If the character is a lowercase alphabet, print "Lowercase Alphabet" If the character is an uppercase alphabet, print "Uppercase Alphabet" If the character is a numeric digit, print "Number" If the character is a special symbol, print "Special Character"
+
+Sample Input 0
+
+a
+Sample Output 0
+
+Lowercase Alphabet
+Sample Input 1
+
+Z
+Sample Output 1
+
+Uppercase Alphabet
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        String s=in.nextLine(); 
+                               
+        for(int i=0;i<s.length();i++){ 
+        char ch=s.charAt(i);
+            if(ch>='a' && ch<='z')
+                System.out.println("Lowercase Alphabet");
+            else if(ch>='A' && ch<='Z')
+                System.out.println("Uppercase Alphabet");
+            else if(ch>='0' && ch<='9')
+                System.out.println("Number");
+            else
+                System.out.println("Special Character");
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------

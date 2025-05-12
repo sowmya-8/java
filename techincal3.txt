@@ -1,0 +1,22 @@
+Strings in java--
+---------------------------------------------
+public class Main
+{
+   public static void main(Strings[] args){
+      String s="hello";//string created by literals
+      String s1=new String("hello");//string created by object
+      System.out.println(s==s1);
+      }
+}
+---------------------------------------------
+->whenever we create string by literals it will be created in string constant pool
+
+->whenever we create string by object then it will created in heap memory 
+
+->string constant pool is a specilied memory in heap memory
+
+->strings are immutable, when try to create new string it will be created in new memory also when we try to modify 
+then it will again crevte new memory but not combining with the existing string.
+
+->intern() is a method which is used to convert the heap memory to string constant pool
++++++++++++++++++++++++++++++++++++++++++++++++++++++

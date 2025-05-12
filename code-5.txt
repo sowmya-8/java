@@ -1,0 +1,27 @@
+ascii value without duplicates 
+-------------------------------------------------------------------------------------------------------------------------------
+Scanner in=new Scanner(System.in);
+String s=in.nextLine();
+set<Character> unique=new LinkedHashSet<Character>();
+for(int i=0;i<s.length();i++)
+unique.add(s.charAt(i)); //['a','b']
+}
+//system.out.print(unique);
+for(char j; //'a' 'b'
+int ans=ch;
+system.out.println(ch+" : "+ans);
+}
+}
+}
+//System.out.print(ans+" ");
+}
+}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+output---
+abaaaabcccb
+[a,b,c]
+a : 97
+b : 98
+c : 99

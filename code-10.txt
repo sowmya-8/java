@@ -1,0 +1,58 @@
+Write a Java program to calculate the electricity bill based on the following tariff structure:
+
+Unit Range Charge per Unit (₹) First 100 units ₹6 per unit Next 100 units (101 - 200) ₹8 per unit Next 100 units (201 - 300) ₹10 per unit Next 100 units (301 - 400) ₹12 per unit Remaining units (above 400) ₹14 per unit
+
+Input Format
+
+A single integer N representing the total number of units consumed.
+
+Constraints
+
+0≤N≤10^6
+
+Output Format
+
+A single integer representing the total electricity bill in ₹
+
+Sample Input 0
+
+50
+Sample Output 0
+
+300
+Sample Input 1
+
+250
+Sample Output 1
+
+1900
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner in=new Scanner(System.in);
+        int u=in.nextInt();
+        int total=0;
+        if(u<=100){
+            total=u*6;
+        }
+        if(u>100 && u<=200){
+            total=100*6+100*8;
+        }
+        if(u>200 && u<=300){
+            total=100*6+100*8+(u-200)*10;
+        }
+        if(u>300 && u<=400){
+            total=100*6+100*8+100*10+(u-300)*12;
+        }
+        if(u>400){
+            total=100*6+100*8+100*10+100*12+(u-400)*14;
+        }
+        System.out.println(total);
+        }
+    }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

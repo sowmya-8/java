@@ -1,0 +1,92 @@
+Write a Java program that simulates an ATM Machine which dispenses cash in the form of ₹500 and ₹100 notes. The program should take an amount as input and calculate the minimum number of ₹500 and ₹100 notes needed to dispense the requested amount.
+
+Conditions: The amount should be a multiple of ₹100. The maximum amount that can be withdrawn at a time is ₹20,000. If the amount is less than or equal to ₹500, it should be dispensed entirely using ₹100 notes. If the amount exceeds ₹500, the program should calculate the maximum number of ₹500 notes first, and the remaining amount should be dispensed using ₹100 notes.
+
+Input Format
+
+A single integer amount representing the withdrawal amount.
+
+Constraints
+
+100≤amount≤20,000 The amount should be a multiple of ₹100
+
+Output Format
+
+If the input is valid, print the number of ₹500 and ₹100 notes dispensed in the format: :500s :100s If the amount is not a multiple of ₹100, print: Please enter the amount in multiples of 100 If the amount exceeds ₹20,000, print: Please enter a lesser denomination
+
+Sample Input 0
+
+1700
+Sample Output 0
+
+3:500s 2:100s
+Sample Input 1
+
+1199
+Sample Output 1
+
+Please enter the amount in multiples of 100
+Sample Input 2
+
+25000
+Sample Output 2
+
+Please enter a lesser denomination
+Sample Input 3
+
+400
+Sample Output 3
+
+4 hundreds
+--------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        if(n%100==0){
+            if(n>20000){
+                System.out.println("Please enter a lesser denomination");
+            }
+            else{
+                if(n<=500){
+                    System.out.println(n/100+" hundreds");
+                }
+            else{
+                int h=5,f=0;
+                f=(n-500)/500;
+                h=h+((n-500)%500)/100;
+                if(h>5){
+                    h=h-5;
+                    f=f+1;
+            }
+                System.out.println(f+":500s "+h+":100s");
+            }}}
+            else{
+                System.out.println("Please enter the amount in multiples of 100");
+            }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+why do we need to learn c?
+1. simple : 32 keywords
+2. very fast
+3. very fast while communicating any type of hardware
+4. structural language
+5. procedural language
+6. funtion driven program
+--------------------------------------
+1. comments
+//documentation--//single lined comment
+/* 
+*/multi line comment
+2.#include<stdio.h>--mndtory{pre processor directive}
+3.user defined section
+  global variable  
+  ex-#define pi 3.14//macros
+  struct std{{int id;}}//user defined
+  union
+
+---------------------------
+features
+1.Robotics{c lng}
+2.embeded system
+3.space research
+4.industrial automatic
+5.computer graphics
+6.system softwares{os,compiler,interpreter}
+7.telecommunication
+-----------------------------------------
+drawbacks:
+1.plaform dependent{os}
+sowmya:windows
+           editor:source code program.c
+                  c compiler (directly)
+                   machine {windows}
+manasa:ios  : machine code
+2.C doesn't provide code security{publicstatic}
+3.C doesn't provide complete code reusability
+4.we can't use same method name for multiple name
+   ex-void add (int a,int b);
+      int add (int a, int b);
+5.cant reduce code complexity
+6.can't handle exception
+  int x = u/v
+  int x = 100/0
+-----------------------------
+why we need to use java--
+1.java is platform independent
+2.write one run anywhere as it uses intermediate code
+3.java runtime environment
+4.java virtual machine
+5.java development toolkit
+6.java development debugging
+7.provides encpsulation:wrapping or grouping the entire code into a continer called class and referred by objects
+8.code security is provide by access specifier and access modifiers
+9.inheritance is provided
+10.user defined packages can be provide in java
+11.polymorphism{having many form to a method}-run time polymorphism,compile time polymorphism
+12.{for reducing code complexity}abstraction-2 ways-one is by usig abstrct clss nd other by using interfces
+13.we can handle exceptions{we cn write our own error messges}
+-------------------------------------
+//structure:
+1.documentation{optional}
+2.creting own pckges{optionl}
+import jv.lng//hed file//pckges
+4. pi:ppliction progrmming lnguge
+     pckhges:set of pckges
+5.folder:set of clsses nd interfces
+6.clss user define dttype collection different dttyes with methods nd constructors
+method:to perform some prticulr ttsk
+constructor:hving some clss to a method
+interfces:hving only bstrct method
+import jv.util.*;
+predefined clsses:Strings,StringTok,Scnner,regex,lambda ex, dte nd time clender
+                 simpletextformt
+scnner:predefined clss
+nextInt();//integers 0-9
+nextLong();//long integers >100 crores
+nextFlot();//deciml vlues
+nextDouble();//3.33333333333333333333333
+nextChr();//we don't hve
+next();//to ccept string without spces
+nextLine()://to ccept string with spces
+
+
+---------------------------
+opertors--
+conditionl opertrs:ternry opertor:three
+ex-
+user enter : 1-->feb hs 28 dys
+            exclamatory1-->feb hs 29 dys
+
+import java.util.*;//util is predefined package//scanner is predefined class
+clss prog1//user defined class
+{
+public static void main(String args[])
+{
+Scanner ob=new Scanner(System.in);
+int num=ob.nextInt();
+//////int num = 2;//2==1 f
+String ans=(num==1)?"feb has 28 days":"feb has 29 days";
+System.out.print(ans);
+}
+}
+
+
+
+
+
+
+
+

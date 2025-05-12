@@ -1,0 +1,45 @@
+Greatest of 3
+---------------------------------------------------------------------------------------------------------------------------
+Create a Java program to find the greatest of three numbers using the ternary operator. 
+The program should take three integer inputs and determine the largest number among them using a nested ternary operator.
+
+Input Format
+
+The input consists of three space-separated integers, a, b, and c.
+
+Constraints
+
+−10^9≤a,b,c≤10^9
+
+Output Format
+
+Print a single integer representing the greatest of the three numbers.
+
+Sample Input 0
+
+10 20 15
+Sample Output 0
+
+20
+Sample Input 1
+
+18 17 1
+Sample Output 1
+
+18
+-----------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int a=ob.nextInt();//10
+        int b=ob.nextInt();//15
+        int c=ob.nextInt();//20
+        int lar2=(a>b)?a:b;//15
+        int lar3=(lar2>c)?lar2:c;
+        System.out.print(lar3);
+    }
+}
