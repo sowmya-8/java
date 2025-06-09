@@ -1,0 +1,48 @@
+Given a positive integer and a modulus M, compute the sum of each digit modulo M.
+
+Input Format
+
+A positive integer N and an integer M.
+
+Constraints
+
+1 ≤ N ≤ 109, 1 ≤ M ≤ 10
+
+Output Format
+
+Output the sum of digits modulo M.
+
+Sample Input 0
+
+123 3
+Sample Output 0
+
+3
+Sample Input 1
+
+456 5
+Sample Output 1
+
+5
+--------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+
+        int sum = 0;
+        while (N > 0) {
+            sum += N % 10;
+            N /= 10;
+        }
+
+        int result = sum % M;
+        if (result == 0) result = M;
+
+        System.out.println(result);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------

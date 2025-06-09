@@ -1,0 +1,67 @@
+Write a Java program to print the word from the string that contains the highest number of vowels.
+
+Input Format
+
+A single line string s.
+
+Constraints
+
+1 <= length of s <= 1000 Lowercase letters only
+
+Output Format
+
+Print the word with the most vowels
+
+Sample Input 0
+
+apple orange banana grape
+Sample Output 0
+
+orange
+Sample Input 1
+
+idea inspiration innovate
+Sample Output 1
+
+inspiration
+---------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class MostVowels {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String sentence = scanner.nextLine();
+
+        MostVowels obj = new MostVowels();
+        String[] words = sentence.split(" ");
+
+        String maxVowelWord = "";
+        int maxVowelCount = -1;
+
+        for (String word : words) {
+            int count = obj.countVowels(word);
+            if (count > maxVowelCount) {
+                maxVowelCount = count;
+                maxVowelWord = word;
+            }
+        }
+
+        System.out.println(maxVowelWord);
+    }
+
+    int countVowels(String word) {
+        int count = 0;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if (isVowel(ch)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    boolean isVowel(char ch) {
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------

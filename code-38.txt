@@ -1,0 +1,62 @@
+You are given a number N. Your task is to determine if N is an amazing number or not. A number is called amazing if it has exactly three distinct positive divisors.
+
+Input Format
+
+• A single integer N
+
+Constraints
+
+• 1 ≤ N ≤ 10¹⁸
+
+Output Format
+
+• Output 1 if the number is amazing • Output 0 otherwise
+
+Sample Input 0
+
+3
+Sample Output 0
+
+0
+Sample Input 1
+
+4
+Sample Output 1
+
+1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long N = sc.nextLong();
+
+        long sqrtN = (long) Math.sqrt(N);
+
+        if (sqrtN * sqrtN != N) {
+            System.out.println(0);
+            return;
+        }
+
+        if (sqrtN < 2) {
+            System.out.println(0);
+            return;
+        }
+
+        boolean isPrime = true;
+        for (long i = 2; i * i <= sqrtN; i++) {
+            if (sqrtN % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

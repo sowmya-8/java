@@ -1,0 +1,48 @@
+The Fibonacci series is a sequence of numbers where each number is the sum of the two preceding ones,starting from 0 and 1. Your task is to write a program that takes an integer n as input and prints the Fibonacci series up to the nth term.
+
+Input Format
+
+The first and only line contains a single integer n, representing the number of terms in the Fibonacci series.
+
+Constraints
+
+✅ 1 ≤ n ≤ 50 (to ensure efficient execution). ✅ Use iterative or recursive approaches. ✅ The output should be space-separated and printed in a single line.
+
+Output Format
+
+Print the first n terms of the Fibonacci series, space-separated.
+
+Sample Input 0
+
+5
+Sample Output 0
+
+0 1 1 2 3
+Sample Input 1
+
+10
+Sample Output 1
+
+0 1 1 2 3 5 8 13 21 34
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
+
+        int a = 0, b = 1;
+
+        for (int i = 0; i < s; i++) {
+            System.out.print(a);
+            if (i < s - 1) {
+                System.out.print(" ");
+            }
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

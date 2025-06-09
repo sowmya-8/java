@@ -1,0 +1,55 @@
+Write a Java program to count the frequency of each word in a given sentence. Words are separated by a space and are case-sensitive.
+
+Input Format
+
+A single line string s containing words
+
+Constraints
+
+1 <= length of s <= 1000 All words are lowercase alphabets or space-separated. No punctuations
+
+Output Format
+
+Print each unique word and its count in the format: word : frequency, each on a new line
+
+Sample Input 0
+
+java is fun and java is powerful
+Sample Output 0
+
+java : 2
+is : 2
+fun : 1
+and : 1
+powerful : 1
+Sample Input 1
+
+hello world hello
+Sample Output 1
+
+hello : 2
+world : 1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String[] words = s.split(" ");
+        Map<String, Integer> wordCount = new LinkedHashMap<>();
+
+        for (String word : words) {
+            if (wordCount.containsKey(word)) {
+                wordCount.put(word, wordCount.get(word) + 1);
+            } else {
+                wordCount.put(word, 1);
+            }
+        }
+
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

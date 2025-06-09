@@ -1,0 +1,138 @@
+A student has appeared for a certain number of subjects. You are required to evaluate:
+
+Subject-wise pass or fail status.
+
+A subject is pass if marks > 35, otherwise fail.
+Overall status:
+
+If any subject is failed, overall status should be "failed".
+Otherwise, classify the result as:
+
+first class with distinction: if average > 85
+first class: if 70 < average <= 85
+second class: if 55 < average <= 70
+third class: if 35 < average <= 55
+failed: if average <= 35
+Print subject(s) where the student scored maximum marks.
+Input Format
+
+First line: An integer n (number of subjects)
+
+Second line: n subject names (space-separated)
+
+Third line: n integers representing marks in those subjects
+
+Constraints
+
+1 <= n <= 10 Each mark is between 0 and 100 Subject names are lowercase and contain no spaces
+
+Output Format
+
+First line: `status subject wise: ...
+
+Second line: `overall status:
+
+Third line: `total: avg:
+
+Fourth line: got maximum marks in subject <subject(s)> with <max marks> marks
+
+Sample Input 0
+
+3
+cs ds os
+90 40 70
+Sample Output 0
+
+status subject wise: cs 90 p ds 40 p os 70 p
+overall status: pass with second class
+total:200 avg:66.7
+got maximum marks in subject cs with 90 marks
+Sample Input 1
+
+3
+cs ds os
+90 20 90
+Sample Output 1
+
+status subject wise: cs 90 p ds 20 f os 90 p
+overall status: failed
+total:200 avg:66.7
+got maximum marks in subject cs os with 90 marks
+Sample Input 2
+
+3
+cs ds os
+40 40 40
+Sample Output 2
+
+status subject wise: cs 40 p ds 40 p os 40 p
+overall status: pass with third class
+total:120 avg:40.0
+got maximum marks in subject cs ds os with 40 marks
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Solution{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        String[] subjects = new String[n];
+        for (int i = 0; i < n; i++) {
+            subjects[i] = sc.next();
+        }
+
+        int[] marks = new int[n];
+        for (int i = 0; i < n; i++) {
+            marks[i] = sc.nextInt();
+        }
+
+        boolean failed = false;
+        int total = 0;
+
+        System.out.print("status subject wise:");
+        for (int i = 0; i < n; i++) {
+            total += marks[i];
+            if (marks[i] <= 35) {
+                failed = true;
+                System.out.print(" " + subjects[i] + " " + marks[i] + " f");
+            } else {
+                System.out.print(" " + subjects[i] + " " + marks[i] + " p");
+            }
+        }
+        System.out.println();
+
+        double avg = (double) total / n;
+        System.out.print("overall status: ");
+        if (failed) {
+            System.out.println("failed");
+        } else if (avg > 85) {
+            System.out.println("pass with first class with distinction");
+        } else if (avg > 70) {
+            System.out.println("pass with first class");
+        } else if (avg > 55) {
+            System.out.println("pass with second class");
+        } else if (avg > 35) {
+            System.out.println("pass with third class");
+        } else {
+            System.out.println("failed");
+        }
+
+        System.out.printf("total:%d avg:%.1f\n", total, avg);
+
+        int maxMarks = marks[0];
+        for (int i = 1; i < n; i++) {
+            if (marks[i] > maxMarks) maxMarks = marks[i];
+        }
+
+        System.out.print("got maximum marks in subject");
+        for (int i = 0; i < n; i++) {
+            if (marks[i] == maxMarks) {
+                System.out.print(" " + subjects[i]);
+            }
+        }
+        System.out.println(" with " + maxMarks + " marks");
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

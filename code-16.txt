@@ -1,0 +1,95 @@
+write a Java program that reverses only the words that start with a consonant. Words that start with a vowel (a, e, i, o, u - case insensitive) should remain unchanged. If no word starts with a vowel, print: No Vowel Starting Word is present in String
+
+Given a sentence S, write a Java program that reverses only the words that start with a consonant. Words that start with a vowel (a, e, i, o, u - case insensitive) should remain unchanged. If no word starts with a vowel, print: No Vowel Starting Word is present in String
+
+Input Format
+
+A single line containing the string S.
+
+Constraints
+
+1 ≤ S.length() ≤ 1000
+Input contains only English alphabets and single spaces.
+No punctuation, special characters, or extra spaces.
+Output Format
+
+A single line where each word that starts with a consonant is reversed, and all other words remain unchanged.
+
+If no such word is found, print: No Vowel Starting Word is present in String
+
+Sample Input 0
+
+Hello Everyone how are Doing
+Sample Output 0
+
+olleH Everyone woh are gnioD
+Sample Input 1
+
+kumar went to Hyd
+Sample Output 1
+
+No Vowel Starting Word is present in String
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+first read string
+then split string
+give ne vowel flag to maintain count
+use loop and find out each word vowels couns
+if v count is zero then print
+"no vowel starting word is present in string"
+else
+take a loop and check
+if starting chars from word is not vowel then only reverse 
+else print vowel starting word as it is
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Read input from user
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        sc.close();
+
+        // Split input into words
+        String[] words = input.split(" ");
+
+        // Store final output
+        String result = "";
+
+        // Count of words that start with a vowel
+        int vowelCount = 0;
+
+        // Loop through each word
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            char ch = Character.toLowerCase(word.charAt(0)); // first letter
+
+            // Check if it's a vowel
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                result = result + word;
+                vowelCount = vowelCount + 1; // increase count
+            } else {
+                // Reverse the word
+                String reversed = "";
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    reversed = reversed + word.charAt(j);
+                }
+                result = result + reversed;
+            }
+
+            // Add space between words except after last
+            if (i < words.length - 1) {
+                result = result + " ";
+            }
+        }
+
+        // If vowelCount is more than 0, print result
+        if (vowelCount > 0) {
+            System.out.println(result);
+        } else {
+            System.out.println("No Vowel Starting Word is present in String");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

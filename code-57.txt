@@ -1,0 +1,65 @@
+Write a Java program to print all palindromic words from a sentence.
+
+Input Format
+
+A single line string s
+
+Constraints
+
+1 <= length of s <= 1000 Words are lowercase alphabets.
+
+Output Format
+
+Print palindromic words separated by space. If none, print "None".
+
+Sample Input 0
+
+madam speaks malayalam but not noon
+Sample Output 0
+
+madam malayalam noon
+Sample Input 1
+
+civic radar level apple
+Sample Output 1
+
+civic radar level
+-------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String[] words = s.split(" ");
+        List<String> palindromes = new ArrayList<>();
+
+        for (String word : words) {
+            int left = 0;
+            int right = word.length() - 1;
+            boolean isPalin = true;
+
+            while (left < right) {
+                if (word.charAt(left) != word.charAt(right)) {
+                    isPalin = false;
+                    break;
+                }
+                left++;
+                right--;
+            }
+
+            if (isPalin) {
+                palindromes.add(word);
+            }
+        }
+
+        if (palindromes.isEmpty()) {
+            System.out.println("None");
+        } else {
+            for (String word : palindromes) {
+                System.out.print(word + " ");
+            }
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------

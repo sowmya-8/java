@@ -1,0 +1,64 @@
+An abecedarian word is a word in which the letters appear in strict alphabetical order from left to right. Your task is to write a program that checks whether a given word is an abecedarian word.
+
+Input Format
+
+A single line containing a word (no spaces).
+
+Constraints
+
+•   The input string will contain only lowercase English letters.
+•   1 ≤ word length ≤ 100
+Output Format
+
+•   Print "Abecedarian" if the word is abecedarian.
+•   Print "Not Abecedarian" otherwise.
+Sample Input 0
+
+abcdef
+Sample Output 0
+
+Abecedarian
+Explanation 0
+
+Each character is strictly in alphabetical order: a < b < c < d < e < f
+
+Sample Input 1
+
+hello
+Sample Output 1
+
+Not Abecedarian
+Explanation 1
+
+‘h’ is followed by ‘e’, which is not in increasing order → Not abecedarian.
+
+Sample Input 2
+
+art
+Sample Output 2
+
+Abecedarian
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String word = sc.nextLine();
+
+        boolean isAbecedarian = true;
+        for (int i = 1; i < word.length(); i++) {
+            if (word.charAt(i) <= word.charAt(i - 1)) {
+                isAbecedarian = false;
+                break;
+            }
+        }
+
+        if (isAbecedarian) {
+            System.out.println("Abecedarian");
+        } else {
+            System.out.println("Not Abecedarian");
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

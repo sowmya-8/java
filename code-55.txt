@@ -1,0 +1,55 @@
+Write a Java program to find and print all duplicate words in a given sentence.
+
+Input Format
+
+A single line string s
+
+Constraints
+
+1 <= length of s <= 1000 Words are separated by spaces. All words are lowercase alphabets
+
+Output Format
+
+Print duplicate words separated by a space. If no duplicates, print "None".
+
+Sample Input 0
+
+big black bug bit big black dog
+Sample Output 0
+
+big black
+Sample Input 1
+
+java is fun java is great
+Sample Output 1
+
+java is
+------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String[] words = s.split(" ");
+        Set<String> seen = new HashSet<>();
+        Set<String> duplicates = new LinkedHashSet<>();
+
+        for (String word : words) {
+            if (seen.contains(word)) {
+                duplicates.add(word);
+            } else {
+                seen.add(word);
+            }
+        }
+
+        if (duplicates.isEmpty()) {
+            System.out.println("None");
+        } else {
+            for (String word : duplicates) {
+                System.out.print(word + " ");
+            }
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------

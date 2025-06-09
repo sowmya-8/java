@@ -1,0 +1,58 @@
+Given a word W, replace every vowel except the first one with '*'.
+
+Input Format
+
+A single word W.
+
+Constraints
+
+• W consists of uppercase and lowercase letters. • 1 ≤ |W| ≤ 100.
+
+Output Format
+
+Print the transformed word.
+
+Sample Input 0
+
+education
+
+Sample Output 0
+
+ed*c*t**n
+
+Sample Input 1
+
+algorithm
+
+Sample Output 1
+
+alg*r*thm
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String vowels = "aeiouAEIOU";
+        String result = "";
+        int vowelSeen = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (vowels.indexOf(ch) != -1) {
+                if (vowelSeen == 0) {
+                    result += ch; 
+                } 
+                else {
+                    result += '*'; 
+                }
+                vowelSeen++;
+            } 
+            else {
+                result += ch;
+            }
+        }
+        System.out.println(result);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

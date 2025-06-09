@@ -1,0 +1,44 @@
+Given a positive integer and a rotation count R, rotate its digits right by R positions.Output the resulting number.
+
+Input Format
+
+A positive integer N and an integer R.
+
+Constraints
+
+• 1 ≤ N ≤ 109 • 0 ≤ R ≤ 10
+
+Output Format
+
+Output the number after rotating digits right by R positions.
+
+Sample Input 0
+
+123 1
+Sample Output 0
+
+312
+Sample Input 1
+
+4567 2
+Sample Output 1
+
+6745
+------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int R = sc.nextInt();
+
+        String numStr = String.valueOf(N);
+        int len = numStr.length();
+        R = R % len;
+
+        String rotated = numStr.substring(len - R) + numStr.substring(0, len - R);
+        System.out.println(rotated);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,61 @@
+write a java program to determine whether it is an isogram or not. Ignore spaces and consider the comparison as case-insensitive
+
+An isogram is c word or phrase in which no letter repeats, regardless of case. You are given a string, and your task is to determine whether it is an isogram or not. Ignore spaces and consider the comparison as case-insensitive
+
+Input Format
+
+A single line containing a string s (can include letters and spaces).
+
+Constraints
+
+1 <= s.length() <= 1000
+
+The string may contain uppercase and lowercase English letters and spaces.
+
+Ignore spaces when checking for isogram status.
+
+Output Format
+
+Print "Isogram" if the string has no repeating letters (ignoring case and spaces).
+
+Print "Not Isogram" if there is any repeated letter.
+
+Sample Input 0
+
+Machine
+Sample Output 0
+
+Isogram
+Sample Input 1
+
+Programming
+Sample Output 1
+
+Not Isogram
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in); 
+        String s=in.nextLine().toLowerCase();
+        int f=0;
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(s.indexOf(ch)!=s.lastIndexOf(ch)){
+                f=1;
+                break;
+            }
+        }
+        if(f==0){
+            System.out.print("Isogram");
+        }
+        else{
+            System.out.print("Not Isogram");
+        }
+    }
+    
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

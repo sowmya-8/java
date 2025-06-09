@@ -1,0 +1,48 @@
+Given a sentence S, count how many words in S end with a vowel (a, e, i, o, u).
+
+Input Format
+
+A single line containing the string S of length 1 ≤ |S| ≤ 10^5.
+
+Constraints
+
+• S consists of uppercase and lowercase letters and spaces. • Words are separated by single spaces.
+
+Output Format
+
+Print an integer, the count of words ending with a vowel.
+
+Sample Input 0
+
+Hello you are awesome
+Sample Output 0
+
+4
+Sample Input 1
+
+I like Java programming
+Sample Output 1
+
+3
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in); 
+        String s = in.nextLine();
+        String[] words = s.split(" "); 
+        int count = 0;
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                char ch = Character.toLowerCase(word.charAt(word.length() - 1)); 
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count); 
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

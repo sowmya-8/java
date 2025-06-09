@@ -1,0 +1,53 @@
+write a java program to determine whether a given string is a pangram or not.
+
+A pangram is a sentence that contains every letter of the English alphabet at least once, ignoring case and spaces. Your task is to determine whether a given string is a pangram or not.
+
+Input Format
+
+• A single line containing a string s.
+
+Constraints
+
+• The input contains only letters and spaces. • 1 <= length of string <= 1000
+
+Output Format
+
+• Print "Pangram" if the string is a pangram. • Print "Not Pangram" otherwise.
+
+Sample Input 0
+
+the Quick brown fox jumps over a lazY dog
+Sample Output 0
+
+Pangram
+Sample Input 1
+
+abc de f ghi klmn op q r st uvw xyz
+Sample Output 1
+
+Not Pangram
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine().toLowerCase();
+        s=s.replaceAll(" ","");
+        String ans = "";
+        for(char c='a';c<='z';c++){
+            if(s.indexOf(c)!=-1){
+                ans=ans+c;
+            }
+        }
+        if(ans.length()==26){
+            System.out.print("Pangram");
+        }
+        else{
+            System.out.print("Not Pangram");
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

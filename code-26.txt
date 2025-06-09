@@ -1,0 +1,60 @@
+Given a sentence S, find the second longest word.
+
+Input Format
+
+A single line containing the string S of length 1 ≤ |S| ≤ 10^5.
+
+Constraints
+
+consists of uppercase and lowercase letters and spaces.
+
+Output Format
+
+Print the second longest word.
+
+Sample Input 0
+
+I love programming and problem solving
+Sample Output 0
+
+solving
+Sample Input 1
+
+Data structures concepts are fun
+Sample Output 1
+
+concepts
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String sentence = scanner.nextLine();
+        String[] words = sentence.split(" ");
+        int longestLength = 0;
+        int secondLongestLength = 0;
+        for (int i = 0; i < words.length; i++) {
+            int len = words[i].length();
+            if (len == 0) continue;
+            if (len > longestLength) {
+                secondLongestLength = longestLength;
+                longestLength = len;
+            } else if (len < longestLength && len > secondLongestLength) {
+                secondLongestLength = len;
+            }
+        }
+        String secondLongestWord = "";
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() == secondLongestLength) {
+                secondLongestWord = words[i]; // keep updating to get the last one
+            }
+        }
+        if (secondLongestWord.equals("")) {
+            System.out.println("No second longest word found");
+        } else {
+            System.out.println(secondLongestWord);
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,64 @@
+Write a java Program to concat two Strings
+
+Input Format
+
+take two strings
+
+Constraints
+
+Strings length should not exceed 100 chars
+
+Output Format
+
+need to print one line
+
+Sample Input 0
+
+Enter String1 
+Sarfaraz
+Enter String2
+Ahamed
+Sample Output 0
+
+Enter String1 
+Sarfaraz
+Enter String2
+Ahamed
+Sarfaraz Ahamed
+Sample Input 1
+
+Enter String1
+Narendra
+Enter String2
+Chary
+Sample Output 1
+
+Enter String1
+Narendra
+Enter String2
+Chary
+Narendra Chary
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String prompt1 = in.nextLine();
+        String s1 = in.nextLine();
+        String prompt2 = in.nextLine();
+        String s2 = in.nextLine();
+
+        if (s1.length() > 100 || s2.length() > 100) {
+            return;
+        }
+
+        System.out.println(prompt1);
+        System.out.println(s1);
+        System.out.println(prompt2);
+        System.out.println(s2);
+        System.out.println(s1 + " " + s2);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

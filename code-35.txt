@@ -1,0 +1,45 @@
+Given two integers a and b, compute a^b (a raised to the power b), and return the k-th digit from the right of the result.
+
+Input Format
+
+• Three space-separated integers: a, b, and k
+
+Constraints
+
+• 1 ≤ a, b ≤ 15 • 1 ≤ k ≤ number of digits in a^b
+
+Output Format
+
+• Print a single digit which is the k-th digit from the right in a^b.
+
+Sample Input 0
+
+3 3 1
+Sample Output 0
+
+7
+Sample Input 1
+
+5 2 2
+Sample Output 1
+
+2
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int k = in.nextInt();
+
+        int result = (int) Math.pow(a, b);
+        String resultStr = Integer.toString(result);
+        int length = resultStr.length();
+        char kthDigit = resultStr.charAt(length - k);
+
+        System.out.println(kthDigit);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

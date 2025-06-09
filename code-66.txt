@@ -1,0 +1,50 @@
+Given a positive integer and an exponent P , raise each digit to the power P and sum the results. Output the sum.
+
+Input Format
+
+A positive integer N and an integer P.
+
+Constraints
+
+1 ≤ N ≤ 109 0 ≤ P ≤ 5
+
+Output Format
+
+Output the sum of each digit raised to power P.
+
+Sample Input 0
+
+123 2
+Sample Output 0
+
+14
+Sample Input 1
+
+456 1
+Sample Output 1
+
+15
+-----------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // Read input number and power
+        int N = in.nextInt();
+        int P = in.nextInt();
+
+        int sum = 0;
+        int temp = N;
+
+        while (temp > 0) {
+            int digit = temp % 10;  // Get last digit
+            sum += Math.pow(digit, P);  // Raise to power and add to sum
+            temp /= 10;  // Remove last digit
+        }
+
+        System.out.println(sum);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

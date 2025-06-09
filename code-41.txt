@@ -1,0 +1,59 @@
+Write a program that finds and prints all prime numbers within a given range [L, R]. A prime number is a number greater than 1 that is only divisible by 1 and itself.
+
+Input Format
+
+The first line contains two integers, L and R, separated by a space.
+
+Constraints
+
+1 ≤ L, R ≤ 10^6 L ≤ R (The first number will always be smaller or equal to the second number)
+
+Output Format
+
+Print all prime numbers in the range [L, R], separated by spaces. If no prime numbers exist in the range, print -1.
+
+Sample Input 0
+
+10 20
+Sample Output 0
+
+11 13 17 19
+Sample Input 1
+
+1 10
+Sample Output 1
+
+2 3 5 7
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int L = sc.nextInt();
+        int R = sc.nextInt();
+
+        boolean foundPrime = false;
+
+        for (int num = L; num <= R; num++) {
+            if (num > 1) {
+                boolean isPrime = true;
+                for (int i = 2; i * i <= num; i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    System.out.print(num + " ");
+                    foundPrime = true;
+                }
+            }
+        }
+
+        if (!foundPrime) {
+            System.out.println(-1);
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

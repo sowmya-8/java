@@ -1,0 +1,51 @@
+Given a positive integer, double each even digit (if the result is two digits, use only the last digit). Output the sum of the modified digits
+
+Input Format
+
+A single positive integer N
+
+Constraints
+
+1 ≤ N ≤ 109
+
+Output Format
+
+Output the sum of the modified digits
+
+Sample Input 0
+
+123
+Sample Output 0
+
+8
+Sample Input 1
+
+555
+Sample Output 1
+
+15
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        int d,sum=0;
+        while(n!=0){
+            d=n%10;
+            if(d%2==0){
+                d=(2*d)%10;
+                sum=sum+d;
+            }
+            else{
+                sum=sum+d;
+            }
+            n=n/10;
+        }
+        System.out.print(sum);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

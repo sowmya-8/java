@@ -1,0 +1,57 @@
+Given two integers L and R, print all numbers between L and R (inclusive) which contain all unique digits. A number is called unique if no digit repeats within the number.
+
+Input Format
+
+• Two space-separated integers: L and R
+
+Constraints
+
+• 1 ≤ L ≤ R ≤ 10⁴
+
+Output Format
+
+• Print all unique numbers between L and R, separated by a space, in a single line.
+
+Sample Input 0
+
+10 20
+Sample Output 0
+
+10 12 13 14 15 16 17 18 19 20
+Sample Input 1
+
+1 9
+Sample Output 1
+
+1 2 3 4 5 6 7 8 9
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int L = in.nextInt();
+        int R = in.nextInt();
+
+        for (int num = L; num <= R; num++) {
+            int temp = num;
+            boolean[] digits = new boolean[10];
+            boolean unique = true;
+
+            while (temp > 0) {
+                int digit = temp % 10;
+                if (digits[digit]) {
+                    unique = false;
+                    break;
+                }
+                digits[digit] = true;
+                temp /= 10;
+            }
+
+            if (unique) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

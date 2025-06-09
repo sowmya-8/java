@@ -1,0 +1,53 @@
+You are given an integer N, representing the size of an array. Your task is to:
+
+Create an array of size N.
+Read N space-separated integers and insert them into the array.
+Print the array elements in the same order, separated by a space.
+Input Format
+
+1.The first line contains a single integer N — the number of elements in the array.
+
+2.The second line contains N space-separated integers — the elements of the array.
+
+Constraints
+
+1 ≤ N ≤ 1000 -10⁶ ≤ Element of the array ≤ 10⁶
+
+Output Format
+
+Print the array elements in a single line, separated by spaces.
+
+Sample Input 0
+
+5
+9 10 11 8 7
+Sample Output 0
+
+9 10 11 8 7
+Sample Input 1
+
+6
+44 3 2 8 3 1
+Sample Output 1
+
+44 3 2 8 3 1
+-------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int n=in.nextInt();
+    int a[]= new int[n];
+    for(int i=0;i<n;i++){
+        a[i]=in.nextInt();
+    }
+    for(int i=0;i<n;i++){
+        System.out.print(a[i]+" ");
+    }
+    }
+}
+-----------------------------------------------------------------------------------------------------

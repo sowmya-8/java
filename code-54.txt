@@ -1,0 +1,50 @@
+Write a Java program to print the first non-repeating character in a given string
+
+Input Format
+
+A single string s
+
+Constraints
+
+1 <= length of s <= 1000 All characters are lowercase alphabets.
+
+Output Format
+
+Print the first non-repeating character. If none found, print "None".
+
+Sample Input 0
+
+success
+Sample Output 0
+
+u
+Sample Input 1
+
+level
+Sample Output 1
+
+v
+-------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        Map<Character, Integer> charCount = new LinkedHashMap<>();
+
+        for (char c : s.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println(entry.getKey());
+                return;
+            }
+        }
+
+        System.out.println("None");
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,54 @@
+Given a sentence ( S ), swap the first and last characters of each word while preserving the order of words in the sentence. If a word has only one character, it remains unchanged.
+
+Input Format
+
+A single line containing a string ( S ), consisting of words separated by spaces.
+
+Constraints
+
+• ( 1 \leq ) length of ( S ) ( \leq 1000 ). • ( S ) contains only lowercase and uppercase English letters and spaces. • Words are separated by a single space, with no leading or trailing spaces.
+
+Output Format
+
+Print the modified sentence after swapping the first and last characters of each word.
+
+Sample Input 0
+
+hello world
+Sample Output 0
+
+oellh dorlw
+Sample Input 1
+
+programming is fun
+Sample Output 1
+
+grogramminp si nuf
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String[] words = s.split(" ");
+        String result = "";
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            if (word.length() == 1) {
+                result += word;
+            } 
+            else {
+                char firstChar = word.charAt(0);
+                char lastChar = word.charAt(word.length() - 1);
+                String swappedWord = lastChar + word.substring(1, word.length() - 1) + firstChar;
+                result += swappedWord;
+            }
+            if (i != words.length - 1) {
+                result += " ";
+            }
+        }
+        System.out.println(result);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

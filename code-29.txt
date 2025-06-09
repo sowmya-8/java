@@ -1,0 +1,49 @@
+Given a sentence S, count the number of vowels and consonants.
+
+Input Format
+
+A single line containing the string S.
+
+Constraints
+
+S consists of uppercase and lowercase letters and spaces.
+
+Output Format
+
+Print the count of vowels and consonants.
+
+Sample Input 0
+
+India is my country
+Sample Output 0
+
+Vowels: 6, Consonants: 10
+Sample Input 1
+
+Hello World
+Sample Output 1
+
+Vowels: 3, Consonants: 7
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        int vowels = 0, consonants = 0;
+        String vowelsSet = "aeiouAEIOU";
+        for (char ch : s.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                if (vowelsSet.indexOf(ch) != -1) {
+                    vowels++;
+                } 
+                else {
+                    consonants++;
+                }
+            }
+        }
+        System.out.println("Vowels: " + vowels + ", Consonants: " + consonants);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

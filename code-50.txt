@@ -1,0 +1,63 @@
+A lipogram is a sentence that deliberately omits a particular letter. Your task is to write a program that checks if a given sentence is a lipogram with respect to a given character.
+
+A sentence is considered a lipogram if the specified character is completely absent (i.e., occurs zero times) in the sentence. If the character occurs even once, it is not a lipogram.
+
+Input Format
+
+•   First line: a sentence consisting of only lowercase English letters and spaces.
+•   Second line: a single lowercase English letter to check for omission.
+Constraints
+
+•   The sentence contains only lowercase letters and spaces.
+•   1 ≤ sentence length ≤ 200
+•   The letter to check will be a single lowercase alphabet.
+Output Format
+
+•   Print "Lipogram" if the character is completely absent from the sentence.
+•   Print "Not a Lipogram" if the character appears even once.
+Sample Input 0
+
+the quick brown fox jumps over a lazy dog
+e
+Sample Output 0
+
+Not a Lipogram
+Explanation 0
+
+The letter 'e' is present in "the" and "over". Hence, it’s not a lipogram.
+
+Sample Input 1
+
+quick brown fox jumps over a lazy dog
+t
+Sample Output 1
+
+Lipogram
+Explanation 1
+
+The letter 't' is not present in any word. So it is a lipogram.
+
+Sample Input 2
+
+jumps over a lazy dog
+q
+Sample Output 2
+
+Lipogram
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String sentence = in.nextLine();
+        char ch = in.nextLine().charAt(0);
+
+        if (sentence.indexOf(ch) == -1) {
+            System.out.println("Lipogram");
+        } else {
+            System.out.println("Not a Lipogram");
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

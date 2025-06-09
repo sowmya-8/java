@@ -1,0 +1,62 @@
+Write a java program to Find Anagram Pairs in Sentence
+
+You are given a sentence containing multiple words. Your task is to find and print all pairs of words that are anagrams of each other. • Each pair should be printed in the order the original word appears in the input. • Each anagram should only be part of one pair. • If no such pairs exist, print "No Anagrams Found".
+
+Input Format
+
+• A single line containing multiple words separated by spaces
+
+Constraints
+
+• Words consist of lowercase or uppercase English letters only. • 1 <= number of words <= 1000 • 1 <= length of each word <= 100
+
+Output Format
+
+• Print anagram pairs in the format: • word1 : word2 • If no anagram pairs are found, print: • No Anagrams Found
+
+Sample Input 0
+
+hai iam adam from mia going to aih
+Sample Output 0
+
+hai : aih
+iam : mia
+Sample Input 1
+
+hello everyone i hope all are doing well
+Sample Output 1
+
+No Anagrams Found
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String w[]=s.split(" ");
+        int f=0;
+        for(int i=0;i<w.length;i++){
+            for(int j=i+1;j<w.length;j++){
+                String s1=w[i];
+                String s2=w[j];
+                if(s1.length()==s2.length()){
+                    char ch1[]=s1.toLowerCase().toCharArray();
+                    char ch2[]=s2.toLowerCase().toCharArray();
+                    Arrays.sort(ch1);
+                    Arrays.sort(ch2);
+                    if(Arrays.equals(ch1,ch2)){
+                        System.out.println(s1+" : "+s2);
+                        f++;
+                    }
+                }
+            }
+        }
+        if(f==0){
+            System.out.print("No Anagrams Found");
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

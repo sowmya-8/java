@@ -1,0 +1,55 @@
+Given a positive integer, find the digit (09) with the highest frequency. If multiple digits have the same frequency, output the smallest digit.
+
+Input Format
+
+A single positive integer N.
+
+Constraints
+
+1 ≤ N ≤ 109
+
+Output Format
+
+Output the smallest digit with the highest frequency.
+
+Sample Input 0
+
+1122
+Sample Output 0
+
+1
+Sample Input 1
+
+333
+Sample Output 1
+
+3
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int[] freq = new int[10];
+
+        while (N > 0) {
+            int digit = N % 10;
+            freq[digit]++;
+            N /= 10;
+        }
+
+        int maxFreq = 0;
+        int result = 0;
+
+        for (int i = 0; i < 10; i++) {
+            if (freq[i] > maxFreq) {
+                maxFreq = freq[i];
+                result = i;
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

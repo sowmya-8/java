@@ -1,0 +1,53 @@
+Write a Java program to remove the middle character from each word in a sentence if the word has an odd length
+
+Input Format
+
+A single line string s.
+
+Constraints
+
+1 <= length of s <= 1000 Words are lowercase alphabets.
+
+Output Format
+
+Print the updated sentence.
+
+Sample Input 0
+
+hello world from java
+Sample Output 0
+
+helo wold from java 
+Sample Input 1
+
+the quick brown fox
+Sample Output 1
+
+te quck brwn fx
+--------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+
+public class RemoveMiddleChar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String sentence = scanner.nextLine();
+        String[] words = sentence.split("\\s+");
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            if (word.length() % 2 == 1) {
+                int mid = word.length() / 2;
+                result.append(word.substring(0, mid)).append(word.substring(mid + 1));
+            } else {
+                result.append(word);
+            }
+            if (i != words.length - 1) {
+                result.append(" ");
+            }
+        }
+
+        System.out.println(result.toString());
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------

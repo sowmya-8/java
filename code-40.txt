@@ -1,0 +1,42 @@
+Write a program that calculates the sum of all numbers in a given range [L, R]. The program should take two integers as input, representing the range, and output the sum of all numbers between them (inclusive).
+
+Input Format
+
+The first line contains two integers, L and R, separated by a space.
+
+Constraints
+
+The two integers will be in the range −10^6 to 10^6. L ≤ R (The first number will always be smaller or equal to the second number)
+
+Output Format
+
+Print a single integer representing the sum of all numbers from L to R (inclusive).
+
+Sample Input 0
+
+1 5
+Sample Output 0
+
+15
+Sample Input 1
+
+-3 3
+Sample Output 1
+
+0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int L = in.nextInt();
+        int R = in.nextInt();
+
+        long count = (long) R - L + 1;
+        long sum = count * (L + (long) R) / 2;
+
+        System.out.println(sum);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,60 @@
+A tautogram is a phrase or sentence in which all words start with the same letter, regardless of case. Write a program that checks if the given sentence is a tautogram.
+
+Input Format
+
+A single line containing a sentence.
+
+Constraints
+
+The sentence contains only alphabets and spaces.
+1 ≤ number of words ≤ 20
+Each word is at least 1 character long
+Output Format
+
+Print "Tautogram" if all words start with the same letter (case-insensitive).
+Print "Not a Tautogram" otherwise.
+Sample Input 0
+
+She sells sea shells
+Sample Output 0
+
+Tautogram
+Sample Input 1
+
+Peter Piper picked a peck
+Sample Output 1
+
+Not a Tautogram
+Sample Input 2
+
+The quick brown fox
+Sample Output 2
+
+Not a Tautogram
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine().trim();
+        
+        String[] words = s.split("\\s+");
+        char firstChar = Character.toLowerCase(words[0].charAt(0));
+        
+        boolean isTautogram = true;
+        for (String word : words) {
+            if (Character.toLowerCase(word.charAt(0)) != firstChar) {
+                isTautogram = false;
+                break;
+            }
+        }
+        
+        if (isTautogram) {
+            System.out.println("Tautogram");
+        } else {
+            System.out.println("Not a Tautogram");
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

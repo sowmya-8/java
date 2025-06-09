@@ -1,0 +1,43 @@
+You are given two strings s1 and s2. Your task is to determine whether s2 is a rotation of s1. A string s2 is considered a rotation of s1 if there exists a way to split s1 into two parts, say x and y, such that s2 = y + x.
+
+Input Format
+
+• The first line contains the string s1. • The second line contains the string s2.
+
+Constraints
+
+• Strings contain only uppercase English letters. • 1 <= length(s1), length(s2) <= 1000
+
+Output Format
+
+• Print "True" if s2 is a rotation of s1. • Print "False" otherwise.
+
+Sample Input 0
+
+ABCD
+CDAB
+Sample Output 0
+
+true
+Sample Input 1
+
+ABCD
+ACBD
+Sample Output 1
+
+false
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String s1 = in.nextLine();
+        String ss1=s+s;
+        System.out.println(ss1.contains(s1));
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

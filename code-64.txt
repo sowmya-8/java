@@ -1,0 +1,53 @@
+Given a positive integer and a threshold, count how many digits are greater than the threshold. If the count is zero, output -1.
+
+Input Format
+
+A positive integer N and an integer T .
+
+Constraints
+
+1 ≤ N ≤ 109 0 ≤ T ≤ 9
+
+Output Format
+
+Output the count of digits greater than T , or -1 if the count is zero
+
+Sample Input 0
+
+123 2
+Sample Output 0
+
+1
+Sample Input 1
+
+111 5
+Sample Output 1
+
+-1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        int t=in.nextInt();
+        int c=0,d;
+        while(n!=0){
+            d=n%10;
+            if(d>t){
+                c++;
+            }
+            n=n/10;
+        }
+        if(c>0){
+            System.out.print(c);
+        }
+        else{
+            System.out.print(-1);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

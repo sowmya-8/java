@@ -1,0 +1,56 @@
+Write a Java program to reverse each individual word in the sentence while preserving the original word order
+
+You are given a sentence S consisting of words separated by single spaces. Write a Java program to reverse each individual word in the sentence while preserving the original word order.
+
+Only the characters in the words should be reversed, not their positions in the sentence.
+
+Input Format
+
+A single line containing the string S.
+
+Constraints
+
+1 ≤ S.length() ≤ 1000
+The input will contain only alphabets and single spaces.
+No punctuation or special characters will be present.
+There will be no leading, trailing, or multiple consecutive spaces.
+Output Format
+
+A single line with each word reversed, separated by a single space, maintaining their original positions.
+
+Sample Input 0
+
+hai iam krishna from CSITECEEEE branch
+Sample Output 0
+
+iah mai anhsirk morf EEEECETISC hcnarb
+Sample Input 1
+
+peters is our college
+Sample Output 1
+
+sretep si ruo egelloc
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String w[]=s.split(" ");
+        for(int i=0;i<w.length;i++){
+            for(int j=w[i].length()-1;j>=0;j--){
+                System.out.print(w[i].charAt(j));
+            }
+            System.out.print(" ");
+        }
+    }
+    
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+

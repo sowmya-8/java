@@ -1,0 +1,56 @@
+Given a sentence ( S ), process each word individually to remove duplicate characters while maintaining the original order of appearance. The words in the sentence should retain their original sequence.
+
+Input Format
+
+A single line containing a string ( S ), consisting of words separated by spaces.
+
+Constraints
+
+( S ) contains only lowercase and uppercase English letters and spaces.
+Words are separated by a single space, with no leading or trailing spaces.
+Output Format
+
+Print the modified sentence with duplicate characters removed from each word while preserving order.
+
+Sample Input 0
+
+programming is great
+
+Sample Output 0
+
+progamin is great
+
+Sample Input 1
+
+success in coding
+
+Sample Output 1
+
+suce in coding
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        String[] words = s.split(" ");
+        String result = "";
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            String processedWord = "";
+            for (int j = 0; j < word.length(); j++) {
+                char c = word.charAt(j);
+                if (processedWord.indexOf(c) == -1) {
+                    processedWord += c;
+                }
+            }
+            if (i > 0) {
+                result += " ";
+            }
+            result += processedWord;
+        }
+        System.out.println(result);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

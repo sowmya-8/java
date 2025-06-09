@@ -1,0 +1,53 @@
+Write a program to check whether two given words are semordnilaps — words that are each other’s reverse but not identical (i.e., not palindromes).
+
+Input Format
+
+•   First line contains the first string.
+•   Second line contains the second string.
+Constraints
+
+Strings will contain only lowercase alphabets.
+1 ≤ length ≤ 100
+Output Format
+
+Print "Semordnilap" if the strings are semordnilaps.
+Print "Not a Semordnilap" otherwise.
+Sample Input 0
+
+stressed
+desserts
+Sample Output 0
+
+Semordnilap
+Sample Input 1
+
+deed
+deed
+Sample Output 1
+
+Not a Semordnilap
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        String s1 = in.nextLine();
+        String s2 = in.nextLine();
+        
+        if (s1.length() != s2.length()) {
+            System.out.println("Not a Semordnilap");
+            return;
+        }
+        
+        String reversed = new StringBuilder(s2).reverse().toString();
+        
+        if (s1.equals(reversed) && !s1.equals(s2)) {
+            System.out.println("Semordnilap");
+        } else {
+            System.out.println("Not a Semordnilap");
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,60 @@
+You are given four integers num1, den1, num2, and den2, which represent two fractions: • num1/den1 and • num2/den2 Your task is to add the two fractions and print the result in its simplest form as a/b.
+
+Input Format
+
+• The first line contains an integer T denoting the number of test cases. • Each of the next T lines contains four space-separated integers: num1, den1, num2, den2.
+
+Constraints
+
+• 1 ≤ T ≤ 100 • 1 ≤ den1, den2, num1, num2 ≤ 1000
+
+Output Format
+
+• For each test case, print the sum of the fractions in reduced form as a/b on a new line.
+
+Sample Input 0
+
+1
+1 500 2 500
+Sample Output 0
+
+3/500
+Sample Input 1
+
+1
+1 2 1 3
+Sample Output 1
+
+5/6
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+
+        for (int i = 0; i < T; i++) {
+            int num1 = in.nextInt();
+            int den1 = in.nextInt();
+            int num2 = in.nextInt();
+            int den2 = in.nextInt();
+
+            int numerator = num1 * den2 + num2 * den1;
+            int denominator = den1 * den2;
+
+            // Calculate GCD inside main
+            int a = numerator;
+            int b = denominator;
+            while (b != 0) {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+            int gcd = a;
+
+            System.out.println((numerator / gcd) + "/" + (denominator / gcd));
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
