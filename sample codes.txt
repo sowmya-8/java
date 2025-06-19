@@ -1,0 +1,43 @@
+sample codes--
+-----------------------------------------------------------------------------------------------------
+public class Main {
+    public static void main(String[] args) {
+        String s = "helloworld" ;
+        String ns = s.substring(0,1).toUpperCase()+s.substring(1);
+        System.out.println(ns);
+        
+    }
+}
+--------------------------------------------------------------------------------------------------
+public class Main {
+    public static void main(String[] args) {
+        String s = "helloworld";
+        System.out.println(s.substring(0));//substring from position zero will come
+        System.out.println(s.substring(2,6));//upperboundary-1
+        System.out.println(s.substring(4,11));//StringIndexOutOfBound Exception will come
+        System.out.println(s.substring(10));//null value will be returned
+        System.out.println(s.substring(0,0));//empty
+        System.out.println(s.substring(9,9));//empty
+    }
+}
+-----------------------------------------------------------------------------------------------------
+class Main {
+    public static void main(String[] args) {
+        String s="helloworld";
+        System.out.println(s.indexOf('l'));//2
+        System.out.println(s.lastIndexOf('l'));//8
+        System.out.println(s.indexOf('h'));//0
+        System.out.println(s.indexOf('b'));//-1
+    }
+}
+----------------------------------------------------------------------------------------------------------
+class Main {
+    public static void main(String[] args) {
+        String s = "abcdabcdead";
+        System.out.println(s.indexOf('d',4));//7
+        System.out.println(s.lastIndexOf('d',9));//7
+        System.out.println(s.indexOf("abcde"));//4
+        System.out.println(s.indexOf("m"));//-1
+    }
+}
+------------------------------------------------------------------------------------------------------------
