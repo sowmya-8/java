@@ -1,0 +1,144 @@
+You are given a 12-digit serial number. Based on a unique scoring logic, determine whether this number is a:
+
+Safe Code
+
+Alert Code
+
+Danger Code
+
+🎯 Scoring Logic: Traverse digits from right to left.
+
+Multiply each digit by an alternating multiplier pattern:
+
++1, -2, +3, -4, +5, -6, +7, -8, +9, -10, +11, -12
+
+Compute the total sum of these multiplications.
+
+Take the absolute value of the sum (i.e., ignore negative sign if any).
+
+Based on this final absolute score:
+
+Final Score (Absolute) Code Type ≤ 30 Safe Code
+
+30 and ≤ 60 Alert Code 60 Danger Code
+
+Input Format
+
+A single 12-digit number N
+
+Constraints
+
+100000000000 ≤ N ≤ 999999999999
+
+Output Format
+
+Print one of the following:
+
+Safe Code
+
+Alert Code
+
+Danger Code
+
+Sample Input 0
+
+123456789123
+Sample Output 0
+
+Safe Code
+Explanation 0
+
+Right-to-left digits: 3 2 1 9 8 7 6 5 4 3 2 1 Multipliers: +1 -2 +3 -4 +5 -6 +7 -8 +9 -10 +11 -12 Calculation:
+
+3×1 = 3
+2×-2 = -4
+1×3 = 3
+9×-4 = -36
+8×5 = 40
+7×-6 = -42
+6×7 = 42
+5×-8 = -40
+4×9 = 36
+3×-10 = -30
+2×11 = 22
+
+1×-12 = -12
+Total = -18 → Absolute = 18 → ✅ Safe Code
+
+Sample Input 1
+
+999888777666
+Sample Output 1
+
+Alert Code
+Explanation 1
+
+Right-to-left digits: 6 6 7 7 8 8 9 9 8 8 9 9 Multipliers: +1 -2 +3 -4 +5 -6 +7 -8 +9 -10 +11 -12 Calculation:
+
+6×1 = 6
+6×-2 = -12
+7×3 = 21
+7×-4 = -28
+8×5 = 40
+8×-6 = -48
+9×7 = 63
+9×-8 = -72
+8×9 = 72
+8×-10 = -80
+9×11 = 99
+
+9×-12 = -108
+Total = -47 → Absolute = 47 → ✅ Alert Code
+
+Sample Input 2
+
+919191919191
+Sample Output 2
+
+Danger Code
+Explanation 2
+
+Right-to-left digits: 1 9 1 9 1 9 1 9 1 9 1 9 Multipliers: +1 -2 +3 -4 +5 -6 +7 -8 +9 -10 +11 -12 Calculation:
+
+1×1 = 1
+9×-2 = -18
+1×3 = 3
+9×-4 = -36
+1×5 = 5
+9×-6 = -54
+1×7 = 7
+9×-8 = -72
+1×9 = 9
+9×-10 = -90
+1×11 = 11
+
+9×-12 = -108
+Total = -352 → Absolute = 352 → ✅ Danger Code
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String serialNumber = scanner.nextLine();
+
+        int[] multipliers = {1, -2, 3, -4, 5, -6, 7, -8, 9, -10, 11, -12};
+        int totalScore = 0;
+
+        for (int i = 0; i < 12; i++) {
+            int digit = serialNumber.charAt(11 - i) - '0';
+            totalScore += digit * multipliers[i];
+        }
+
+        int finalScore = Math.abs(totalScore);
+
+        if (finalScore <= 30) {
+            System.out.println("Safe Code");
+        } else if (finalScore <= 60) {
+            System.out.println("Alert Code");
+        } else {
+            System.out.println("Danger Code");
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

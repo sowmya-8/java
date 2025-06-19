@@ -1,0 +1,102 @@
+You are given a 12-digit card number. Your task is to determine the type of the card usig the following steps:
+
+Traverse the digits from right to left.
+
+Alternately add and subtract the digits:
+
+Start with the rightmost digit as positive (+),
+
+Next digit as negative (−),
+
+Then positive (+),
+
+Then negative (−), and so on.
+
+Once the alternating sum is calculated, take its absolute value.
+
+Based on the absolute sum, determine the card type:
+
+Absolute Sum Card Type ≤ 10 Visa Card
+
+10 and ≤ 15 MasterCard 15 RuPay Card
+
+Input Format
+
+A single line containing a 12-digit positive integer N.
+
+Constraints
+
+100000000000 ≤ N ≤ 999999999999 The number must be exactly 12 digits long.
+
+Output Format
+
+Print exactly one of the following card types:
+
+Visa Card
+
+MasterCard
+
+RuPay Card
+
+Sample Input 0
+
+123456789123
+Sample Output 0
+
+Visa Card
+Explanation 0
+
+Right to left: +3 −2 +1 −9 +8 −7 +6 −5 +4 −3 +2 −1 = −3 Absolute = 3 → ≤ 10 → Visa Card
+
+Sample Input 1
+
+159753486213
+Sample Output 1
+
+Visa Card
+Explanation 1
+
++3 −1 +2 −6 +8 −4 +3 −5 +7 −9 +5 −1 = −12 Absolute = 12 → >10 and ≤15 → MasterCard
+
+Sample Input 2
+
+919191919191
+Sample Output 2
+
+RuPay Card
+Explanation 2
+
++1 −9 +1 −9 +1 −9 +1 −9 +1 −9 +1 −9 = −48 Absolute = 48 → >15 → RuPay Card
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String cardNumber = scanner.nextLine();
+        
+        int totalSum = 0;
+        boolean shouldAdd = true;
+
+        for (int i = cardNumber.length() - 1; i >= 0; i--) {
+            int digit = cardNumber.charAt(i) - '0';
+            if (shouldAdd) {
+                totalSum += digit;
+            } else {
+                totalSum -= digit;
+            }
+            shouldAdd = !shouldAdd;
+        }
+
+        int absoluteSum = Math.abs(totalSum);
+
+        if (absoluteSum <= 10) {
+            System.out.println("Visa Card");
+        } else if (absoluteSum <= 15) {
+            System.out.println("MasterCard");
+        } else {
+            System.out.println("RuPay Card");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

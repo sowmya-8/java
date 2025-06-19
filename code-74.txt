@@ -1,0 +1,64 @@
+You are given a positive integer N. Your task is to keep summing its digits until the result is a single-digit number. This process is known as finding the digital root of a number.
+
+Input Format
+
+A single line containing a positive integer N.
+
+Constraints
+
+1 ≤ N ≤ 10⁹
+
+Output Format
+
+Print the final single-digit sum (digital root) of the number.
+
+Sample Input 0
+
+9
+Sample Output 0
+
+9
+Explanation 0
+
+It's already a single digit.
+
+Sample Input 1
+
+1235
+Sample Output 1
+
+2
+Explanation 1
+
+1 + 2 + 3 + 5 = 11 1 + 1 = 2
+
+Sample Input 2
+
+1991
+Sample Output 2
+
+2
+Explanation 2
+
+1 + 9 + 9 + 1 = 20 2 + 0 = 2
+---------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        while (n >= 10) {
+            int sum = 0;
+            while (n > 0) {
+                sum += n % 10; 
+                n /= 10;       
+            }
+            n = sum;
+        }
+        
+        System.out.println(n); 
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------
