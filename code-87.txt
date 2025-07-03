@@ -1,0 +1,67 @@
+Print the element that appears most frequently in the array. If a tie exists, print the smaller element.
+
+Input Format
+
+First line: Integer n Second line: n space-separated integers
+
+Constraints
+
+1 ≤ n ≤ 1000 -10⁵ ≤ a[i] ≤ 10⁵
+
+Output Format
+
+A single integer (most frequent)
+
+Sample Input 0
+
+5
+1 2 2 3 1
+Sample Output 0
+
+1
+Sample Input 1
+
+6
+10 10 5 5 5 10
+Sample Output 1
+
+5
+----------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        int[] freq = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        for (int i = 0; i < n; i++) {
+            int count = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+            freq[i] = count;
+        }
+
+        int maxFreq = 0;
+        int result = 100001; 
+
+        for (int i = 0; i < n; i++) {
+            if (freq[i] > maxFreq || (freq[i] == maxFreq && arr[i] < result)) {
+                maxFreq = freq[i];
+                result = arr[i];
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------

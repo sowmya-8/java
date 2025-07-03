@@ -1,0 +1,61 @@
+You are given an array and an integer K. Rotate the array to the right by K positions cyclically
+
+Input Format
+
+First line: Integer n Second line: n space-separated integers Third line: Integer K
+
+Constraints
+
+1 ≤ n ≤ 1000 0 ≤ a[i] ≤ 10⁶ 0 ≤ K ≤ 1000
+
+Output Format
+
+Print the rotated array.
+
+Sample Input 0
+
+1
+100
+0
+Sample Output 0
+
+100
+Sample Input 1
+
+1
+100
+5
+Sample Output 1
+
+100
+--------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        int[] rotated = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        int k = in.nextInt();
+        k = k % n;
+
+        for (int i = 0; i < n; i++) {
+            int newPos = (i + k) % n;
+            rotated[newPos] = arr[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(rotated[i]);
+            if (i != n - 1) System.out.print(" ");
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+

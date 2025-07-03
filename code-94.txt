@@ -1,0 +1,62 @@
+Given an array of non-negative integers and a target sum, find the first subarray (continuous elements) whose sum is equal to the target. Print the subarray, or "No Subarray Found" if none
+
+Input Format
+
+First line: Integer n Second line: n space-separated non-negative integers Third line: Integer sum
+
+Constraints
+
+1 ≤ n ≤ 1000 0 ≤ a[i] ≤ 10⁶ 0 ≤ sum ≤ 10⁷
+
+Output Format
+
+Print the subarray elements in one line, or "No Subarray Found"
+
+Sample Input 0
+
+5
+1 2 3 7 5
+12
+Sample Output 0
+
+2 3 7
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        int target = in.nextInt();
+        int start = 0, end = 0, currentSum = 0, found = 0;
+
+        while (end <= n) {
+            if (currentSum < target && end < n) {
+                currentSum += arr[end++];
+            } else if (currentSum > target) {
+                currentSum -= arr[start++];
+            } else if (currentSum == target) {
+                for (int i = start; i < end; i++) {
+                    System.out.print(arr[i]);
+                    if (i != end - 1) System.out.print(" ");
+                }
+                found = 1;
+                break;
+            } else {
+                break;
+            }
+        }
+
+        if (found == 0) {
+            System.out.println("No Subarray Found");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,50 @@
+Print the sum of elements located at even indexes in the array (0-based).
+
+Input Format
+
+First line: Integer n Second line: n space-separated integers
+
+Constraints
+
+1 ≤ n ≤ 1000 -10⁶ ≤ a[i] ≤ 10⁶
+
+Output Format
+
+Single integer (sum)
+
+Sample Input 0
+
+5
+1 2 3 4 5
+Sample Output 0
+
+9
+Sample Input 1
+
+4
+10 20 30 40
+Sample Output 1
+
+40
+------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+            if (i % 2 == 0) {
+                sum += arr[i];
+            }
+        }
+
+        System.out.println(sum);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------

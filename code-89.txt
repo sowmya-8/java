@@ -1,0 +1,62 @@
+Given an array, print each element and its frequency in the order of appearance.
+
+Input Format
+
+First line: Integer n Second line: n space-separated integers
+
+Constraints
+
+1 ≤ n ≤ 1000 -10⁵ ≤ a[i] ≤ 10⁵
+
+Output Format
+
+Each element and frequency in new line.
+
+Sample Input 0
+
+5
+1 2 2 3 1
+Sample Output 0
+
+1 2
+2 2
+3 1
+Sample Input 1
+
+4
+4 4 4 4
+Sample Output 1
+
+4 4
+-----------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        int[] counted = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+            counted[i] = 0;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (counted[i] == 1) continue;
+
+            int count = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                    counted[j] = 1;
+                }
+            }
+
+            System.out.println(arr[i] + " " + count);
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
