@@ -1,0 +1,51 @@
+Given a positive integer and a range [low, high], sum the digits that fall within the range (inclusive).
+
+Input Format
+
+A positive integer N, integers low, and high.
+
+Constraints
+
+1 ≤ N ≤ 109, 0 ≤ low ≤ high ≤ 9
+
+Output Format
+
+Output the sum of digits in the range
+
+Sample Input 0
+
+123 2 4
+Sample Output 0
+
+5
+Sample Input 1
+
+567 6 8
+Sample Output 1
+
+13
+-----------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int N = in.nextInt();
+        int low = in.nextInt();
+        int high = in.nextInt();
+
+        int sum = 0;
+
+        while (N > 0) {
+            int digit = N % 10;
+            if (digit >= low && digit <= high) {
+                sum += digit;
+            }
+            N /= 10;
+        }
+
+        System.out.println(sum);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
